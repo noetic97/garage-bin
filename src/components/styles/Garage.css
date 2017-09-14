@@ -1,0 +1,16 @@
+.garage-door {
+  border: 2px solid black;
+  width: vw;
+  min-height: 500px;
+}
+
+.garage-door.closed {
+  background-image: url('../../assets/garage2.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.garage-door.opened {
+  -webkit-box-shadow: inset 0px 0px 50px 75px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 0px 50px 75px rgba(0, 0, 0, 0.2);
+}

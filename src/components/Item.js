@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles/Item.css';
 
-const Item = ({ item, handleClick }) => {
+const Item = ({ item, open, handleClick }) => {
   return (
     <section>
       <h3>{item.name}</h3>
-      <button onClick={() => handleClick(item)}>View Details</button>
+      <button onClick={() => handleClick()}>View Details</button>
     </section>
   );
 };
