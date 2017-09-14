@@ -44,10 +44,12 @@ class App extends Component {
         </div>
         <GarageOpener
           getItems={this.getItems}
+          open={this.state.garageOpen}
           toggleDoor={this.toggleDoor}
         />
         <Garage
           items={this.state.items}
+          open={this.state.garageOpen}
           displayFullItem={this.displayFullItem}
         />
       </div>

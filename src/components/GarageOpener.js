@@ -1,7 +1,8 @@
 import React from 'react';
 import './styles/GarageOpener.css';
 
-const GarageOpener = ({ getItems, toggleDoor }) => {
+const GarageOpener = ({ getItems, toggleDoor, open }) => {
+  const openDisplay = !open ? 'Open Garage' : 'Close Garage';
   const doubleFunc = () => {
     getItems();
     toggleDoor();
@@ -9,7 +10,7 @@ const GarageOpener = ({ getItems, toggleDoor }) => {
 
   return (
     <section className="garage-opener">
-      <h3>Open Garage</h3>
+      <h3>{openDisplay}</h3>
       <button
         className="garage-opener-button"
         onClick={() => doubleFunc()}

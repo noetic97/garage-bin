@@ -1,0 +1,16 @@
+.garage-opener {
+  width: 200px;
+  height: 150px;
+  margin: 10px auto;
+  background-color: rgb(92, 90, 92);
+  border: 1px solid black;
+  -webkit-box-shadow: 5px 5px 10px gray;
+          box-shadow: 5px 5px 10px gray;
+}
+
+.garage-opener-button {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: maroon;
+}
