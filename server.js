@@ -11,13 +11,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, './build')));
 app.use('/api/v1', router);
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 
 app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, './public', 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
 app.listen(app.get('port'), () => {
