@@ -11,7 +11,4 @@ npm-debug.log*
 .env
 
 package-lock.json
-
-/build/app.bundle.js
-/build/app.bundle.js.map
 jsconfig.json
