@@ -51,6 +51,7 @@
     "start": "webpack-dev-server --open",
     "server": "nodemon server.js",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha test/*",
-    "lint": "./node_modules/.bin/eslint ./"
+    "lint": "./node_modules/.bin/eslint ./",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   }
 }
