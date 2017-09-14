@@ -1,5 +1,5 @@
 module.exports = {
-  
+
   development: {
     client: 'pg',
     connection: 'postgres://localhost/garage_bin_dev',
@@ -9,9 +9,8 @@ module.exports = {
     seeds: {
       directory: './db/seeds/dev',
     },
-    useNullAsDefault: true,
   },
-  
+
   test: {
     client: 'pg',
     connection: process.env.DATABASE_URL || 'postgres://localhost/garage_bin_test',
@@ -21,9 +20,8 @@ module.exports = {
     seeds: {
       directory: './db/test/seeds',
     },
-    useNullAsDefault: true,
   },
-  
+
   production: {
     client: 'pg',
     connection: `${process.env.DATABASE_URL}?ssl=true`,
@@ -33,6 +31,5 @@ module.exports = {
     seeds: {
       directory: './db/seeds/dev',
     },
-    useNullAsDefault: true,
   },
 };
