@@ -30,9 +30,6 @@ exports.deleteItem = (req, res) => {
   db('garage_item')
     .where({ id })
     .del()
-    .then(data => res.status(200).json({
-      res: 'You have removed the item',
-      data,
-    }))
+    .then(() => res.status(200).json('You have removed the item'))
     .catch(error => res.status(500).json({ error }));
 };
