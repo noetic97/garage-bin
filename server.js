@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log(`Garage Bin is running on ${app.get('port')}.`);
+  console.log(`Garage Bin is running on ${app.get('port')}.`); //eslint-disable-line
 });
 
 exports.app = app;
