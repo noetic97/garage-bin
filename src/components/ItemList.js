@@ -17,9 +17,18 @@ const ItemList = ({ items, open, handleClick, getItems, deleteItem }) => {
     />);
   });
 
+  const sortItems = () => {
+    const sortedArray = items.sort((a, b) => a.name[0] > b.name[0]);
+    console.log(sortedArray);
+    return sortedArray;
+  };
+
   return (
     <section className={`item-display ${hidden}`}>
-      <header>You have {itemCount} Items</header>
+      <header>
+        <p>You have {itemCount} Items</p>
+        <button onClick={sortItems}>Sort the garage</button>
+      </header>
       <ItemCreate getItems={getItems} />
       <section className="item-list">
         {itemArray}
