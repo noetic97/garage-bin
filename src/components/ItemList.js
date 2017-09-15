@@ -1,10 +1,19 @@
 import React from 'react';
+import { func, array, bool } from 'prop-types';
 import Item from './Item';
 import ItemCard from './ItemCard';
 import ItemCreate from './ItemCreate';
 import './styles/ItemList.css';
 
-const ItemList = ({ items, open, handleClick, getItems, deleteItem, showFullDisplay, editItem }) => {
+const ItemList = ({
+  deleteItem,
+  editItem,
+  getItems,
+  handleClick,
+  items,
+  open,
+  showFullDisplay,
+}) => {
   const hidden = !open ? 'hidden' : '';
   const itemCount = items.length;
   const itemArray = items.map((item) => {
@@ -46,5 +55,24 @@ const ItemList = ({ items, open, handleClick, getItems, deleteItem, showFullDisp
   );
 };
 
+ItemList.defaultProps = {
+  deleteItem: func,
+  editItem: func,
+  getItems: func,
+  handleClick: func,
+  items: array,
+  open: bool,
+  showFullDisplay: bool,
+};
+
+ItemList.propTypes = {
+  deleteItem: func,
+  editItem: func,
+  getItems: func,
+  handleClick: func,
+  items: array,
+  open: bool,
+  showFullDisplay: bool,
+};
 
 export default ItemList;

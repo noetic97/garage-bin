@@ -1,7 +1,13 @@
 import React from 'react';
+import { func, array } from 'prop-types';
 import './styles/ItemCard.css';
 
-const ItemCard = ({ item, deleteItem, handleClick, editItem }) => {
+const ItemCard = ({
+  deleteItem,
+  editItem,
+  handleClick,
+  item,
+}) => {
   return (
     <section>
       <h3>{item.name}</h3>
@@ -21,6 +27,20 @@ const ItemCard = ({ item, deleteItem, handleClick, editItem }) => {
       <button onClick={() => handleClick(item)}>View Details</button>
     </section>
   );
+};
+
+ItemCard.defaultProps = {
+  deleteItem: func,
+  editItem: func,
+  handleClick: func,
+  item: array,
+};
+
+ItemCard.propTypes = {
+  deleteItem: func,
+  editItem: func,
+  handleClick: func,
+  item: array,
 };
 
 export default ItemCard;
