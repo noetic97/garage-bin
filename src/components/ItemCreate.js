@@ -60,12 +60,14 @@ class ItemCreate extends Component {
           <input
             type="text"
             id="name"
+            placeholder="Item Name"
             value={name}
             onChange={e => this.handleChange(e)}
           />
           <input
             type="text"
             id="reason_to_store"
+            placeholder="Reason to Keep?"
             value={reason_to_store} //eslint-disable-line
             onChange={e => this.handleChange(e)}
           />

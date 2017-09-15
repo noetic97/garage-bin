@@ -15,6 +15,8 @@ class App extends Component {
     this.getItems = this.getItems.bind(this);
     this.toggleDoor = this.toggleDoor.bind(this);
     this.displayFullItem = this.displayFullItem.bind(this);
+    this.editItem = this.editItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   getItems() {
@@ -34,12 +36,33 @@ class App extends Component {
     this.setState({ showFullDisplay: !this.state.showFullDisplay });
   }
 
+  editItem(cleanliness, id) {
+    fetch(`api/v1/items/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        cleanliness,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(res => res.json())
+      .then(() => this.getItems())
+      .catch((error) => {
+        throw new Error({ error });
+      });
+  }
+
   deleteItem(id) {
     fetch(`api/v1/items/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     })
       .then(res => res.json())
+      .then(() => {
+        const newItemArray = this.state.items.filter((item) => {
+          return item.id !== id;
+        });
+        this.setState({ items: newItemArray });
+      })
       .catch((error) => {
         throw new Error({ error });
       });
@@ -63,7 +86,9 @@ class App extends Component {
           getItems={this.getItems}
           items={this.state.items}
           open={this.state.garageOpen}
+          showFullDisplay={this.state.showFullDisplay}
           displayFullItem={this.displayFullItem}
+          editItem={this.editItem}
           deleteItem={this.deleteItem}
         />
       </div>

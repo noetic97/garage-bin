@@ -1,8 +1,8 @@
 import React from 'react';
-import ItemList from './ItemList'
+import ItemList from './ItemList';
 import './styles/Garage.css';
 
-const Garage = ({ items, open, displayFullItem, getItems, deleteItem }) => {
+const Garage = ({ items, open, displayFullItem, getItems, deleteItem, showFullDisplay, editItem }) => {
   const garageClass = open ? 'opened' : 'closed';
 
   return (
@@ -11,7 +11,9 @@ const Garage = ({ items, open, displayFullItem, getItems, deleteItem }) => {
         items={items}
         open={open}
         handleClick={displayFullItem}
+        showFullDisplay={showFullDisplay}
         getItems={getItems}
+        editItem={editItem}
         deleteItem={deleteItem}
       />
     </main>

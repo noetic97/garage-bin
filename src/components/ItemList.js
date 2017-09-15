@@ -1,16 +1,26 @@
 import React from 'react';
 import Item from './Item';
+import ItemCard from './ItemCard';
 import ItemCreate from './ItemCreate';
 import './styles/ItemList.css';
 
-const ItemList = ({ items, open, handleClick, getItems, deleteItem }) => {
+const ItemList = ({ items, open, handleClick, getItems, deleteItem, showFullDisplay, editItem }) => {
   const hidden = !open ? 'hidden' : '';
   const itemCount = items.length;
   const itemArray = items.map((item) => {
+    if (showFullDisplay) {
+      return (<ItemCard
+        key={item.id}
+        item={item}
+        handleClick={handleClick}
+        getItems={getItems}
+        editItem={editItem}
+        deleteItem={deleteItem}
+      />);
+    }
     return (<Item
       key={item.id}
       item={item}
-      open={open}
       handleClick={handleClick}
       getItems={getItems}
       deleteItem={deleteItem}
@@ -19,7 +29,6 @@ const ItemList = ({ items, open, handleClick, getItems, deleteItem }) => {
 
   const sortItems = () => {
     const sortedArray = items.sort((a, b) => a.name[0] > b.name[0]);
-    console.log(sortedArray);
     return sortedArray;
   };
 
