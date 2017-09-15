@@ -3,7 +3,7 @@ import Item from './Item';
 import ItemCreate from './ItemCreate';
 import './styles/ItemList.css';
 
-const ItemList = ({ items, open, handleClick, getItems }) => {
+const ItemList = ({ items, open, handleClick, getItems, deleteItem }) => {
   const hidden = !open ? 'hidden' : '';
   const itemCount = items.length;
   const itemArray = items.map((item) => {
@@ -12,6 +12,8 @@ const ItemList = ({ items, open, handleClick, getItems }) => {
       item={item}
       open={open}
       handleClick={handleClick}
+      getItems={getItems}
+      deleteItem={deleteItem}
     />);
   });
 
