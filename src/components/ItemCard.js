@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, array } from 'prop-types';
+import { func, object } from 'prop-types';
 import './styles/ItemCard.css';
 
 const ItemCard = ({
@@ -33,14 +33,14 @@ ItemCard.defaultProps = {
   deleteItem: func,
   editItem: func,
   handleClick: func,
-  item: array,
+  item: object,
 };
 
 ItemCard.propTypes = {
   deleteItem: func,
   editItem: func,
   handleClick: func,
-  item: array,
+  item: object,
 };
 
 export default ItemCard;

@@ -31,7 +31,7 @@ const Garage = ({
 
 Garage.defaultProps = {
   deleteItem: func,
-  displayFullItem: bool,
+  displayFullItem: func,
   editItem: func,
   getItems: func,
   items: array,
@@ -41,7 +41,7 @@ Garage.defaultProps = {
 
 Garage.propTypes = {
   deleteItem: func,
-  displayFullItem: bool,
+  displayFullItem: func,
   editItem: func,
   getItems: func,
   items: array,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, func } from 'prop-types';
+import { object, func } from 'prop-types';
 import './styles/Item.css';
 
 const Item = ({
@@ -19,13 +19,13 @@ const Item = ({
 Item.defaultProps = {
   deleteItem: func,
   handleClick: func,
-  item: array,
+  item: object,
 };
 
 Item.propTypes = {
   deleteItem: func,
   handleClick: func,
-  item: array,
+  item: object,
 };
 
 export default Item;
