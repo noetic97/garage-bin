@@ -23173,15 +23173,32 @@ var ItemList = function ItemList(_ref) {
     });
   });
 
+  var sortItems = function sortItems() {
+    var sortedArray = items.sort(function (a, b) {
+      return a.name[0] > b.name[0];
+    });
+    console.log(sortedArray);
+    return sortedArray;
+  };
+
   return _react2.default.createElement(
     'section',
     { className: 'item-display ' + hidden },
     _react2.default.createElement(
       'header',
       null,
-      'You have ',
-      itemCount,
-      ' Items'
+      _react2.default.createElement(
+        'p',
+        null,
+        'You have ',
+        itemCount,
+        ' Items'
+      ),
+      _react2.default.createElement(
+        'button',
+        { onClick: sortItems },
+        'Sort the garage'
+      )
     ),
     _react2.default.createElement(_ItemCreate2.default, { getItems: getItems }),
     _react2.default.createElement(
