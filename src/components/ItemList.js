@@ -16,6 +16,15 @@ const ItemList = ({
 }) => {
   const hidden = !open ? 'hidden' : '';
   const itemCount = items.length;
+  const sparkleCount = items.filter((item) => {
+    return item.cleanliness === 'Sparkling';
+  });
+  const dustyCount = items.filter((item) => {
+    return item.cleanliness === 'Dusty';
+  });
+  const rancidCount = items.filter((item) => {
+    return item.cleanliness === 'Rancid';
+  });
   const itemArray = items.map((item) => {
     if (showFullDisplay) {
       return (<ItemCard
@@ -44,7 +53,11 @@ const ItemList = ({
   return (
     <section className={`item-display ${hidden}`}>
       <header>
-        <p>You have {itemCount} Items</p>
+        <p>You have {itemCount} Items.</p>
+        <p> Sparkling: <span className="clean-count">{sparkleCount.length}</span>,
+            Dusty: <span className="clean-count">{dustyCount.length}</span>,
+            Rancid: <span className="clean-count">{rancidCount.length}</span>
+        </p>
         <button onClick={sortItems}>Sort the garage</button>
       </header>
       <ItemCreate getItems={getItems} />
