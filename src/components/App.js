@@ -34,6 +34,17 @@ class App extends Component {
     this.setState({ showFullDisplay: !this.state.showFullDisplay });
   }
 
+  deleteItem(id) {
+    fetch(`api/v1/items/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(res => res.json())
+      .catch((error) => {
+        throw new Error({ error });
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -53,6 +64,7 @@ class App extends Component {
           items={this.state.items}
           open={this.state.garageOpen}
           displayFullItem={this.displayFullItem}
+          deleteItem={this.deleteItem}
         />
       </div>
     );

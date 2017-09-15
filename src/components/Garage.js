@@ -2,7 +2,7 @@ import React from 'react';
 import ItemList from './ItemList'
 import './styles/Garage.css';
 
-const Garage = ({ items, open, displayFullItem, getItems }) => {
+const Garage = ({ items, open, displayFullItem, getItems, deleteItem }) => {
   const garageClass = open ? 'opened' : 'closed';
 
   return (
@@ -12,6 +12,7 @@ const Garage = ({ items, open, displayFullItem, getItems }) => {
         open={open}
         handleClick={displayFullItem}
         getItems={getItems}
+        deleteItem={deleteItem}
       />
     </main>
   );
