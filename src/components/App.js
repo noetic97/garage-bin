@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       garageOpen: false,
       items: [],
+      showFullDisplay: false,
     };
 
     this.getItems = this.getItems.bind(this);
@@ -30,7 +31,7 @@ class App extends Component {
   }
 
   displayFullItem() {
-    console.log(this.state);
+    this.setState({ showFullDisplay: !this.state.showFullDisplay });
   }
 
   render() {
@@ -48,6 +49,7 @@ class App extends Component {
           toggleDoor={this.toggleDoor}
         />
         <Garage
+          getItems={this.getItems}
           items={this.state.items}
           open={this.state.garageOpen}
           displayFullItem={this.displayFullItem}
