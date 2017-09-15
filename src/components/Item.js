@@ -5,7 +5,7 @@ const Item = ({ item, open, handleClick }) => {
   return (
     <section>
       <h3>{item.name}</h3>
-      <button onClick={() => handleClick()}>View Details</button>
+      <button onClick={() => handleClick(item)}>View Details</button>
     </section>
   );
 };
