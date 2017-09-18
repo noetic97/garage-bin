@@ -9,10 +9,11 @@ const ItemList = ({
   deleteItem,
   editItem,
   getItems,
-  handleClick,
+  displayFullItem,
   items,
   open,
   showFullDisplay,
+  sortItems,
 }) => {
   const hidden = !open ? 'hidden' : '';
   const itemCount = items.length;
@@ -30,7 +31,7 @@ const ItemList = ({
       return (<ItemCard
         key={item.id}
         item={item}
-        handleClick={handleClick}
+        displayFullItem={displayFullItem}
         getItems={getItems}
         editItem={editItem}
         deleteItem={deleteItem}
@@ -39,16 +40,11 @@ const ItemList = ({
     return (<Item
       key={item.id}
       item={item}
-      handleClick={handleClick}
+      displayFullItem={displayFullItem}
       getItems={getItems}
       deleteItem={deleteItem}
     />);
   });
-
-  const sortItems = () => {
-    const sortedArray = items.sort((a, b) => a.name[0] > b.name[0]);
-    return sortedArray;
-  };
 
   return (
     <section className={`item-display ${hidden}`}>
@@ -58,7 +54,7 @@ const ItemList = ({
             Dusty: <span className="clean-count">{dustyCount.length}</span>,
             Rancid: <span className="clean-count">{rancidCount.length}</span>
         </p>
-        <button onClick={sortItems}>Sort the garage</button>
+        <button onClick={() => sortItems(items)}>Sort the garage</button>
       </header>
       <ItemCreate getItems={getItems} />
       <section className="item-list">
@@ -70,22 +66,24 @@ const ItemList = ({
 
 ItemList.defaultProps = {
   deleteItem: func,
+  displayFullItem: func,
   editItem: func,
   getItems: func,
-  handleClick: func,
   items: array,
   open: bool,
   showFullDisplay: bool,
+  sortItems: func,
 };
 
 ItemList.propTypes = {
   deleteItem: func,
+  displayFullItem: func,
   editItem: func,
   getItems: func,
-  handleClick: func,
   items: array,
   open: bool,
   showFullDisplay: bool,
+  sortItems: func,
 };
 
 export default ItemList;

@@ -17,6 +17,7 @@ class App extends Component {
     this.displayFullItem = this.displayFullItem.bind(this);
     this.editItem = this.editItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.sortItems = this.sortItems.bind(this);
   }
 
   getItems() {
@@ -34,6 +35,17 @@ class App extends Component {
 
   displayFullItem() {
     this.setState({ showFullDisplay: !this.state.showFullDisplay });
+  }
+
+  sortItems(items) {
+    const sortedArray = items.sort((a, b) => {
+      if (a.name.length === 1 || b.name.length === 1) {
+        return a.name[0].toLowerCase() > b.name[0].toLowerCase();
+      }
+      return (a.name[0].toLowerCase() + a.name[1].toLowerCase()) >
+      (b.name[0].toLowerCase() + b.name[1].toLowerCase());
+    });
+    this.setState({ items: sortedArray });
   }
 
   editItem(cleanliness, id) {
@@ -90,6 +102,7 @@ class App extends Component {
           displayFullItem={this.displayFullItem}
           editItem={this.editItem}
           deleteItem={this.deleteItem}
+          sortItems={this.sortItems}
         />
       </div>
     );

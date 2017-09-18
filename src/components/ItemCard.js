@@ -5,7 +5,7 @@ import './styles/ItemCard.css';
 const ItemCard = ({
   deleteItem,
   editItem,
-  handleClick,
+  displayFullItem,
   item,
 }) => {
   return (
@@ -24,22 +24,22 @@ const ItemCard = ({
         </select>
       </label>
       <button onClick={() => deleteItem(item.id)}>Throw it away!!</button>
-      <button onClick={() => handleClick(item)}>View Details</button>
+      <button onClick={() => displayFullItem(item)}>View Details</button>
     </section>
   );
 };
 
 ItemCard.defaultProps = {
   deleteItem: func,
+  displayFullItem: func,
   editItem: func,
-  handleClick: func,
   item: object,
 };
 
 ItemCard.propTypes = {
   deleteItem: func,
+  displayFullItem: func,
   editItem: func,
-  handleClick: func,
   item: object,
 };
 
