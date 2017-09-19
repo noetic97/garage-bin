@@ -9,6 +9,7 @@ module.exports = {
       "arrow-body-style": [0],
       "react/jsx-filename-extension": [ 1, {"extensions": [".jsx", ".js"] }],
       "react/jsx-no-literals": [ 0, { "noStrings": true }],
+      "react/forbid-prop-types": [0],
       "react/no-set-state": [0],
       "react/require-optimization": [0],
       "react/prefer-stateless-function": [0],

@@ -1,7 +1,12 @@
 import React from 'react';
+import { func, bool } from 'prop-types';
 import './styles/GarageOpener.css';
 
-const GarageOpener = ({ getItems, toggleDoor, open }) => {
+const GarageOpener = ({
+  getItems,
+  open,
+  toggleDoor,
+}) => {
   const openDisplay = !open ? 'Open Garage' : 'Close Garage';
   const doubleFunc = () => {
     getItems();
@@ -17,6 +22,18 @@ const GarageOpener = ({ getItems, toggleDoor, open }) => {
       />
     </section>
   );
+};
+
+GarageOpener.defaultProps = {
+  getItems: func,
+  open: bool,
+  toggleDoor: func,
+};
+
+GarageOpener.propTypes = {
+  getItems: func,
+  open: bool,
+  toggleDoor: func,
 };
 
 export default GarageOpener;
