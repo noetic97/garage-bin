@@ -45,8 +45,8 @@ describe('garage_item API routes', () => {
               'reason_to_store',
               'cleanliness');
           });
-          res.body[0].name.should.equal('Comic Books');
-          res.body[0].reason_to_store.should.equal('These will be worth so much money one day!');
+          res.body[0].name.should.equal('Tesla Model 3');
+          res.body[0].reason_to_store.should.equal('OMG!!! I own a TESLA!!!!');
           res.body[0].cleanliness.should.equal('Sparkling');
           res.body[0].id.should.be.a('number');
           res.body[0].name.should.be.a('string');
@@ -98,10 +98,10 @@ describe('garage_item API routes', () => {
         .end((err, res) => {
           should.not.exist(err);
           res.status.should.equal(200);
-          res.body[0].name.should.equal('Comic Books');
-          res.body[0].reason_to_store.should.equal('These will be worth so much money one day!');
-          res.body[0].cleanliness.should.equal('Sparkling');
-          const id = res.body[0].id;
+          res.body[5].name.should.equal('Comic Books');
+          res.body[5].reason_to_store.should.equal('These will be worth so much money one day!');
+          res.body[5].cleanliness.should.equal('Sparkling');
+          const id = res.body[5].id;
 
           chai.request(app)
             .patch(`/api/v1/items/${id}`)
