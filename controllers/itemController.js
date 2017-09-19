@@ -1,7 +1,7 @@
 const { db } = require('../server');
 
 exports.itemIndex = (req, res) => {
-  db('garage_item').select()
+  db('garage_item').select().orderBy('id', 'desc')
     .then(items => res.status(200).json(items))
     .catch(error => res.status(500).json({ error }));
 };

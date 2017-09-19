@@ -23,7 +23,10 @@ class App extends Component {
   getItems() {
     fetch('api/v1/items')
       .then(res => res.json())
-      .then(items => this.setState({ items }))
+      .then(items => this.setState({
+        items,
+        sorted: false,
+      }))
       .catch((error) => {
         throw new Error({ error });
       });
@@ -60,11 +63,12 @@ class App extends Component {
     return this.setState({ items: sortedArray, sorted: true });
   }
 
-  editItem(cleanliness, id) {
+  editItem(cleanliness, id, display) {
     fetch(`api/v1/items/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({
         cleanliness,
+        item_display: display,
       }),
       headers: { 'Content-Type': 'application/json' },
     })
@@ -114,6 +118,7 @@ class App extends Component {
           editItem={this.editItem}
           deleteItem={this.deleteItem}
           sortItems={this.sortItems}
+          sorted={this.state.sorted}
         />
       </div>
     );

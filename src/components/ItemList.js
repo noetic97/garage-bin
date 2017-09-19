@@ -12,9 +12,11 @@ const ItemList = ({
   displayFullItem,
   items,
   open,
+  sorted,
   sortItems,
 }) => {
   const hidden = !open ? 'hidden' : '';
+  const sortMessage = !sorted ? 'Sort the garage' : 'Reverse the sort';
   const itemCount = items.length;
   const sparkleCount = items.filter((item) => {
     return item.cleanliness === 'Sparkling';
@@ -53,7 +55,7 @@ const ItemList = ({
             Dusty: <span className="clean-count">{dustyCount.length}</span>,
             Rancid: <span className="clean-count">{rancidCount.length}</span>
         </p>
-        <button onClick={() => sortItems(items)}>Sort the garage</button>
+        <button onClick={() => sortItems(items)}>{sortMessage}</button>
       </header>
       <ItemCreate getItems={getItems} />
       <section className="item-list">
@@ -70,6 +72,7 @@ ItemList.defaultProps = {
   getItems: func,
   items: array,
   open: bool,
+  sorted: bool,
   sortItems: func,
 };
 
@@ -80,6 +83,7 @@ ItemList.propTypes = {
   getItems: func,
   items: array,
   open: bool,
+  sorted: bool,
   sortItems: func,
 };
 

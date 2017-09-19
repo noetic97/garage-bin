@@ -10,6 +10,7 @@ const Garage = ({
   getItems,
   items,
   open,
+  sorted,
   sortItems,
 }) => {
   const garageClass = open ? 'opened' : 'closed';
@@ -23,6 +24,7 @@ const Garage = ({
         getItems={getItems}
         editItem={editItem}
         deleteItem={deleteItem}
+        sorted={sorted}
         sortItems={sortItems}
       />
     </main>
@@ -36,6 +38,7 @@ Garage.defaultProps = {
   getItems: func,
   items: array,
   open: bool,
+  sorted: bool,
   sortItems: func,
 };
 
@@ -46,6 +49,7 @@ Garage.propTypes = {
   getItems: func,
   items: array,
   open: bool,
+  sorted: bool,
   sortItems: func,
 };
 
