@@ -12,7 +12,6 @@ const ItemList = ({
   displayFullItem,
   items,
   open,
-  showFullDisplay,
   sortItems,
 }) => {
   const hidden = !open ? 'hidden' : '';
@@ -27,7 +26,7 @@ const ItemList = ({
     return item.cleanliness === 'Rancid';
   });
   const itemArray = items.map((item) => {
-    if (showFullDisplay) {
+    if (item.item_display) {
       return (<ItemCard
         key={item.id}
         item={item}
@@ -71,7 +70,6 @@ ItemList.defaultProps = {
   getItems: func,
   items: array,
   open: bool,
-  showFullDisplay: bool,
   sortItems: func,
 };
 
@@ -82,7 +80,6 @@ ItemList.propTypes = {
   getItems: func,
   items: array,
   open: bool,
-  showFullDisplay: bool,
   sortItems: func,
 };
 

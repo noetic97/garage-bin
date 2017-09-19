@@ -24,7 +24,7 @@ const ItemCard = ({
         </select>
       </label>
       <button onClick={() => deleteItem(item.id)}>Throw it away!!</button>
-      <button onClick={() => displayFullItem(item)}>View Details</button>
+      <button onClick={() => displayFullItem(item.id)}>View Details</button>
     </section>
   );
 };

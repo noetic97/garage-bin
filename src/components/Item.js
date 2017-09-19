@@ -11,7 +11,7 @@ const Item = ({
     <section>
       <h3>{item.name}</h3>
       <button onClick={() => deleteItem(item.id)}>Throw it away!!</button>
-      <button onClick={() => displayFullItem(item)}>View Details</button>
+      <button onClick={() => displayFullItem(item.id)}>View Details</button>
     </section>
   );
 };

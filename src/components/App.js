@@ -9,7 +9,6 @@ class App extends Component {
     this.state = {
       garageOpen: false,
       items: [],
-      showFullDisplay: false,
     };
 
     this.getItems = this.getItems.bind(this);
@@ -33,8 +32,16 @@ class App extends Component {
     this.setState({ garageOpen: !this.state.garageOpen });
   }
 
-  displayFullItem() {
-    this.setState({ showFullDisplay: !this.state.showFullDisplay });
+  displayFullItem(id) {
+    const toggledItem = this.state.items.map((item) => {
+      if (id === item.id) {
+        item.item_display = !item.item_display; // eslint-disable-line
+        const newItem = Object.assign({}, item);
+        return newItem;
+      }
+      return item;
+    });
+    this.setState({ items: toggledItem });
   }
 
   sortItems(items) {
@@ -98,7 +105,6 @@ class App extends Component {
           getItems={this.getItems}
           items={this.state.items}
           open={this.state.garageOpen}
-          showFullDisplay={this.state.showFullDisplay}
           displayFullItem={this.displayFullItem}
           editItem={this.editItem}
           deleteItem={this.deleteItem}
