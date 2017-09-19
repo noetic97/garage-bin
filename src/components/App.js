@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       garageOpen: false,
       items: [],
+      sorted: false,
     };
 
     this.getItems = this.getItems.bind(this);
@@ -45,6 +46,10 @@ class App extends Component {
   }
 
   sortItems(items) {
+    if (this.state.sorted) {
+      items.reverse();
+      return this.setState({ sorted: false });
+    }
     const sortedArray = items.sort((a, b) => {
       if (a.name.length === 1 || b.name.length === 1) {
         return a.name[0].toLowerCase() > b.name[0].toLowerCase();
@@ -52,7 +57,7 @@ class App extends Component {
       return (a.name[0].toLowerCase() + a.name[1].toLowerCase()) >
       (b.name[0].toLowerCase() + b.name[1].toLowerCase());
     });
-    this.setState({ items: sortedArray });
+    return this.setState({ items: sortedArray, sorted: true });
   }
 
   editItem(cleanliness, id) {
